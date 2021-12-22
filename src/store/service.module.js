@@ -7,9 +7,10 @@ const state = {
     timeout: 50000
 };
 
+
 const actions = {
     genericRequest(store, { url, method, body }) {
-        return new Promise(resolve => {
+        return new Promise((resolve,reject) => {
             const REST_API_URL = 'https://61c2403fde977000179b5420.mockapi.io/api'
             console.log(url);
             console.log(method);
@@ -21,18 +22,25 @@ const actions = {
             };
             state.req
                 .request(config)
-                .then(({ data }) => {
+                .then(( {data} ) => {
                     console.log(data)
-                    return resolve(data);
+                     resolve(data);
                 })
-                .catch(({ data }) => {
-                    return resolve(data);
-                });
+                .catch((err) => {
+                    reject(err)
+                })
         });
+    }
+}
+
+const getters = {
+    getAxios(state){
+        return state.req
     }
 }
 
 export default{
     state,
-    actions
+    actions,
+    getters
 }

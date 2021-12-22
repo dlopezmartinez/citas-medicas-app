@@ -1,18 +1,38 @@
-import axios from 'axios';
 import router from '../router';
 import store from '../store';
 
-export default function setupInterceptors() {
-    axios.interceptors.response.use((response) => {return response},   (error) => {
-        switch(error.status){
-            case 400 :
-                console.error(error.response.status, error.message);
-                console.log("400")
-            case 401:
-                console.error(error.response.status, error.message);
-                console.log("401")
-                break;
+const axios = store.getters.getAxios
 
+ function setupRequestInterceptor() {
+
+    axios.interceptors.request.use((config) =>{
+        if(store.getters.isAuthenticated){
+            axios.defaults.headers.Authorization = 'Bearer ' + store.getters.getToken
+        } else {
+            delete axios.defaults.headers.common["Authorization"];
+            router.push("/login");
         }
-    })
+        return config
+    }, (error) => {
+        return Promise.reject(error)
+    });
+
+        
+}
+
+ function setupResponseInterceptor() {
+    axios.interceptors.response.use(
+        (response) => { 
+          console.log("Response interceptor working")  
+          return response;
+        },
+        (error) => { 
+          return Promise.reject(error);
+        });
+}
+
+
+export default function setupInterceptors(){
+    setupResponseInterceptor()
+    setupRequestInterceptor()
 }
