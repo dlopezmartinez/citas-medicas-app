@@ -7,7 +7,6 @@ const axios = store.getters.getAxios
 
     axios.interceptors.request.use((config) =>{
         if(store.getters.isAuthenticated){
-            console.log("Entro interceptor")
             config.headers["Authorization"] = 'Bearer ' + store.getters.getToken
         } else {
             delete config.headers["Authorization"]
@@ -24,11 +23,13 @@ const axios = store.getters.getAxios
  function setupResponseInterceptor() {
     axios.interceptors.response.use(
         (response) => { 
-          console.log("Response interceptor working")  
           return response;
         },
-        (error) => { 
-          return Promise.reject(error);
+        (err) => { 
+            if(err.response.status == "400"){
+                console.log("Login incorrecto")
+            }
+          return Promise.reject(err);
         });
 }
 
