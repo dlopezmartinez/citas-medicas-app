@@ -1,9 +1,8 @@
 <template>
-    <div class="home-page">
+    <div id="homeId" class="home-page">
         <div class="banner">
             <div class="container">
-                <h1 class="logo-font">Banco Caminos</h1>
-                <p>Tu banco de confianza.</p>
+                <h1 class="logo-font">Listado de contratos</h1>
             </div>
         </div>
         <div class="container page">

@@ -20,6 +20,7 @@ app.use(cors({
   }));
 
 app.post('/api/login', function (req, res) {
+    console.log("Handler login...")
     if(req.body.username == "carla"){
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -33,9 +34,16 @@ app.post('/api/login', function (req, res) {
 
 
 app.get('/api/product', function (req, res) {
-    res.setHeader("Content-Type", "application/json; charset=utf-8");
-    res.send(JSON.stringify([{ id: '1', name: 'Cuenta corriente', balance: 3421.45}, { id: '2', name: 'Tarjeta crédito', balance: 50.45}]));
-    
+    console.log("Handler product...")
+    if(req.headers.authorization == null){
+        console.log("No header auth ")
+        res.statusCode = 403
+        res.send();
+    }else{
+        console.log("Header auth "+req.headers.authorization)
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.send(JSON.stringify([{ id: '1', name: 'Cuenta corriente', balance: 3421.45}, { id: '2', name: 'Tarjeta crédito', balance: 50.45}]));
+    }
 });
 
 
