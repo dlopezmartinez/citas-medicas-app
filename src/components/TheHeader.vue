@@ -13,8 +13,7 @@
         </li>
       </ul>
       <ul v-else class="nav navbar-nav pull-xs-right">
-        <li class="nav-item" v-if="currentUser">Hola de nuevo, {{ currentUser }} |   <b-button variant="outline-primary">Primary</b-button>
-
+        <li class="nav-item" v-if="currentUser">Hola de nuevo, {{ currentUser }} |
         <b-button variant="link" v-if="currentUser" v-on:click="logout">Logout</b-button>
         </li>
       </ul>
