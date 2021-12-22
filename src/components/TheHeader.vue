@@ -13,8 +13,8 @@
         </li>
       </ul>
       <ul v-else class="nav navbar-nav pull-xs-right">
-        <li class="nav-item" v-if="currentUser">Hola de nuevo, {{ currentUser }} |
-        <b-button variant="link" v-if="currentUser" v-on:click="logout">Logout</b-button>
+        <li class="navbar-brand nav-item" v-if="currentUser">Hola de nuevo, {{ currentUser }} |
+        <b-button id="btnLogout" variant="link" v-if="currentUser" v-on:click="logout">Logout</b-button>
         </li>
       </ul>
     </div>
@@ -42,3 +42,10 @@ export default {
   }
 };
 </script>
+
+<style>
+
+#btnLogout{
+  color: red;
+}
+</style>

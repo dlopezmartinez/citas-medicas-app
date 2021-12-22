@@ -34,7 +34,7 @@ app.post('/api/login', function (req, res) {
 
 app.get('/api/product', function (req, res) {
     res.setHeader("Content-Type", "application/json; charset=utf-8");
-    res.send(JSON.stringify([{ id: '1', name: 'cuenta', saldo: 12.45}, { id: '2', name: 'tarjeta', saldo: 50.45}]));
+    res.send(JSON.stringify([{ id: '1', name: 'Cuenta corriente', balance: 3421.45}, { id: '2', name: 'Tarjeta crédito', balance: 50.45}]));
     
 });
 

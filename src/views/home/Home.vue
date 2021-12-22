@@ -7,8 +7,8 @@
             </div>
         </div>
         <div class="container page">
-            <ul id="example-1">
-                <li v-for="item in source" :key="item.id">{{ item }}</li>
+            <ul id="list-products" class="list-group">
+                <button type="button" class="list-group-item list-group-item-action list-group-item-primary" v-for="item in source" :key="item.id">{{ item.name }} {{item.balance}}</button>
             </ul>
         </div>
     </div>
@@ -39,3 +39,10 @@ export default {
     },
 };
 </script>
+<style>
+
+#list-products{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+</style>
