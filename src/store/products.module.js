@@ -20,9 +20,15 @@ const actions = {
    
     products({commit,dispatch}){
         return new Promise((resolve,reject) => {
-            dispatch("get",productsURL).then((response) => {
-                commit("setProducts",response.data);
-                resolve(response.data)
+            dispatch(
+                "genericRequest",
+                {
+                    url: productsURL,
+                    method: "GET"
+                }
+            ).then((response) => {
+                commit("setProducts",response);
+                resolve(response)
             }).catch((err) => {
                 reject(err);
             }) 

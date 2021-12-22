@@ -24,13 +24,20 @@ const mutations = {
 const actions = {
    login({commit,dispatch},credentials){
        return new Promise((resolve,reject) => {
-        dispatch("post",authURL,credentials)
+        dispatch(
+            "genericRequest",
+            {
+                url: authURL,
+                method: "POST",
+                body: credentials
+            }
+        )
         .then((response) => {
              commit("setUser", {
-                 token : response.data.token,
-                 name : response.data.username,
+                 token : response.token,
+                 name : response.username,
              });
-             resolve(response.data)
+             resolve(response)
         }).catch((error) => {
             reject(error.message)
         })

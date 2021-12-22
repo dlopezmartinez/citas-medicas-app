@@ -15,17 +15,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // }).mount("#app");
 
 //Ensure we checked auth before each page load.
-// router.beforeResolve((to, from, next) =>{         
-//     if(to.name=="Login"){
-//         next()
-//     } else {
-//         if(!store.getters.isAuthenticated){
-//             next("/login")
-//         } else{
-//             next()
-//         }
-//     }
-// });
+ router.beforeResolve((to, from, next) =>{         
+     if(to.name=="login"){
+         next()
+     } else {
+         if(!store.getters.isAuthenticated){
+             next("/login")
+         } else{
+             next()
+         }
+     }
+});
 
 
 //setup interceptors
