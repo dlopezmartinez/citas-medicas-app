@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import RwvHeader from "@/components/TheHeader";
 import RwvFooter from "@/components/TheFooter";
 
@@ -15,8 +14,8 @@ export default {
   name: "App",
   components: {
     RwvFooter,
-    RwvHeader
-  }
+    RwvHeader,
+  },
 };
 </script>
 
@@ -27,7 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   height: 100vh;
-  color: #0061a9;
-  background-color: #00ffff;
+  color: rgb(0, 41, 65);
 }
 </style>

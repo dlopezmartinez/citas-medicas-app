@@ -2,7 +2,7 @@
   <div id="homeId" class="home-page">
     <div class="banner">
       <div class="container">
-        <h1 class="logo-font">Listado de products</h1>
+        <h1 class="logo-font">Listado de productos</h1>
         <p>Seleccione un producto para continuar</p>
       </div>
     </div>
@@ -14,6 +14,13 @@
           v-for="item in source"
           :key="item.id"
         >
+          <img
+            src="@/assets/img/wallet.svg"
+            alt="Bootstrap"
+            width="20"
+            height="20"
+            style="margin-right: 1%"
+          />
           <strong>{{ item.name }}</strong> {{ item.balance }}€
         </button>
       </ul>
