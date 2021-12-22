@@ -8,9 +8,9 @@ const axios = store.getters.getAxios
     axios.interceptors.request.use((config) =>{
         if(store.getters.isAuthenticated){
             console.log("Entro interceptor")
-            axios.defaults.headers.Authorization = 'Bearer ' + store.getters.getToken
+            config.headers["Authorization"] = 'Bearer ' + store.getters.getToken
         } else {
-            delete axios.defaults.headers.common["Authorization"];
+            delete config.headers["Authorization"]
             router.push("/login");
         }
         return config

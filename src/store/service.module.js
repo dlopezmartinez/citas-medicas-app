@@ -23,7 +23,6 @@ const actions = {
             state.req
                 .request(config)
                 .then(( {data} ) => {
-                    console.log(data)
                      resolve(data);
                 })
                 .catch((err) => {
