@@ -5,10 +5,7 @@
         Banco Caminos
       </router-link>
       <span class="attribution">
-        An interactive learning project from
-        <a rel="noopener noreferrer" target="blank" href="https://thinkster.io"
-          >Thinkster</a
-        >. Code &amp; design licensed under MIT.
+        Project developed by Carla Liarte.
       </span>
     </div>
   </footer>
@@ -19,3 +16,13 @@ export default {
   name: "RwvFooter"
 };
 </script>
+
+<style>
+footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background: #00f3ff;
+}
+</style>
