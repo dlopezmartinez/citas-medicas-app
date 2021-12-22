@@ -27,7 +27,7 @@
       </ul>
       <ul v-else class="nav navbar-nav pull-xs-right">
         <li class="navbar-brand nav-item nav-link" v-if="currentUser">
-          Hola de nuevo, {{ currentUser }} |
+          Hola de nuevo, {{ currentUser.toUpperCase() }} |
           <b-button
             id="btnLogout"
             variant="link"
