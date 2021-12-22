@@ -70,9 +70,6 @@ export default {
   color: red;
 }
 
-nav {
-  background: #00f3ff;
-}
 li {
   float: left;
   flex-direction: initial;
