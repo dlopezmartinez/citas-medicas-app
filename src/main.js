@@ -15,20 +15,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // }).mount("#app");
 
 //Ensure we checked auth before each page load.
-router.beforeResolve((to, from, next) =>{         
-    if(to.name=="Login"){
-        next()
-    } else {
-        if(!store.getters.isAuthenticated){
-            next("/login")
-        } else{
-            next()
-        }
-    }
-});
+// router.beforeResolve((to, from, next) =>{         
+//     if(to.name=="Login"){
+//         next()
+//     } else {
+//         if(!store.getters.isAuthenticated){
+//             next("/login")
+//         } else{
+//             next()
+//         }
+//     }
+// });
 
-//If we have user login data in our store, set the token to the header
-store.dispatch("checkAuth");
 
 //setup interceptors
 setupInterceptors();

@@ -1,7 +1,7 @@
 import axios from "axios";
 import store from "@/store";
 
-const REST_API_URL = 'http://localhost:8080/api'
+const REST_API_URL = 'https://61c2403fde977000179b5420.mockapi.io/api'
 
 const ApiService = {
 
@@ -35,42 +35,3 @@ const ApiService = {
 
 export default ApiService;
 
-export const UsuarioService = {
-
-    getAll(){
-        return ApiService.get("/usuarios");
-    }
-
-}
-
-export const AuthService = {
-
-    post(params){
-        return ApiService.post("/authenticate",params);
-    }
-
-}
-
-export const MedicoService = {
-
-    get(){
-        return ApiService.get("/medicos");
-    },
-
-    post(params){
-        return ApiService.post("/medicos/add",params);
-    }
-
-}
-
-export const PacienteService = {
-
-    get(){
-        return ApiService.get("/pacientes");
-    },
-
-    post(params){
-        return ApiService.post("/pacientes/add",params);
-    }
-
-}

@@ -7,11 +7,10 @@ export default function setupInterceptors() {
         switch(error.status){
             case 400 :
                 console.error(error.response.status, error.message);
-                return error;
+                console.log("400")
             case 401:
                 console.error(error.response.status, error.message);
-                store.dispatch("purgeAuth");
-                router.push("login");
+                console.log("401")
                 break;
 
         }

@@ -1,70 +1,59 @@
-import jwtService from "../common/jwt.service";
-import {AuthService} from "@/common/api.service" 
-import ApiService from "../common/api.service";
+const authURL = "/authenticate"
 
 
 const state = {
-    user: {  
-      username:'',
-      rol:'',
-      token:'',
-    }
+    token: '',
+    username:'',
+    isAuthenticated : false
 }
 const mutations = {
-    setAuth(state, user){
-        state.user = user
-        ApiService.setHeader();
+
+    setUser(state, user){
+        state.token = user.token;
+        state.username = user.name;
+        state.isAuthenticated = true;
     },
-    purgeAuth(state){
-        state.user = {};
-        ApiService.removeHeader()
-    },
+
+    purgeUser(state){
+        state.token = '';
+        state.username = '';
+        state.isAuthenticated = false;
+    }
+
 }
 const actions = {
-    
-    checkAuth(context){
-        console.log("Checking auth")
-        if(context.getters.isAuthenticated)
-            ApiService.setHeader();
-    },
-    login(context,credentials){
-        return new Promise((resolve, reject) => {
-            AuthService.post(credentials).then((response) => {
-                var decoded = jwtService.transcribeToken(response.data.token);
-                context.commit("setAuth", {
-                username : decoded.sub,
-                rol : decoded.rol,
-                token : response.data.token
-                })
-                resolve(response.data)
-            }).catch((error) => {
-                reject(error.message)
-            })
-            }
-        )},
-    logout(context){
-        context.commit("purgeAuth");
-        getters.showState(state)
-    },
+   login({commit,dispatch},credentials){
+       return new Promise((resolve,reject) => {
+        dispatch("post",authURL,credentials)
+        .then((response) => {
+             commit("setUser", {
+                 token : response.data.token,
+                 name : response.data.username,
+             });
+             resolve(response.data)
+        }).catch((error) => {
+            reject(error.message)
+        })
+       })
+
+   },
+
+   logOut({commit}){
+       commit("purgeUser");
+   }
+
 }
 const getters = {
 
     isAuthenticated(state){
-        return !!state.user.token
-    },
-    showState(state){
-        console.log(state.user)
+        return state.isAuthenticated;
     },
 
-    getCredentials(state){
-      return state.user
-    },
-    
-    getToken(state){
-        return state.user.token
-    },
-  }
+    currentUser(state){
+        return state.username;
+    }
 
+}
 
 export default{
     state,

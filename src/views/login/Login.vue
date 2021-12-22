@@ -46,7 +46,10 @@ export default defineComponent({
             this.$store.dispatch("login", {
                 username: this.datos.usuario,
                 password: this.datos.clave
-            }).then(() => {
+            }).then((response) => {
+                console.log("Login correcto")
+                console.log("Username : " + response.username)
+                console.log("Token : " + response.token)
                 this.$router.push("/");
             }).catch((error) => {
                 console.log(error)

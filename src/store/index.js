@@ -1,17 +1,15 @@
 import { createStore } from "vuex";
 import auth from "./auth.module";
-import med from "./medico.module"
-import usr from "./user.module"
-import pac from "./paciente.module"
+import service from "./service.module"
+import products from "./products.module"
 import createPersistedState from "vuex-persistedstate";
 
 
 export default createStore({
   modules: {
     auth,
-    med,
-    usr,
-    pac
+    service,
+    products
   },
   plugins : [createPersistedState({
     storage : window.localStorage

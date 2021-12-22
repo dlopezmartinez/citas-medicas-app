@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
-    <br />
-    <router-view />
+    <RwvHeader />
+    <router-view></router-view>
+    <RwvFooter />
   </div>
 </template>
 
 <script>
-import Navbar from "./components/navbar/Navbar.vue";
+
+import RwvHeader from "@/components/TheHeader";
+import RwvFooter from "@/components/TheFooter";
 
 export default {
   name: "App",
-  components: { Navbar },
+  components: {
+    RwvFooter,
+    RwvHeader
+  }
 };
 </script>
 
@@ -24,10 +29,5 @@ export default {
   height: 100vh;
   color: #faedc6;
   background-color: #7cd1b8;
-}
-
-#app a {
-  font-weight: bold;
-  color: #2c3e50;
 }
 </style>
