@@ -15,7 +15,11 @@
       <ul v-else class="nav navbar-nav pull-xs-right">
         <li class="navbar-brand nav-item nav-link" v-if="currentUser">
           Hola de nuevo, {{ currentUser }} |
-          <a v-if="currentUser" v-on:click="logout">Logout</a>
+          <a
+            href="#"
+            v-if="currentUser"
+            v-on:click="logout"
+          >Logout</a>
         </li>
       </ul>
     </div>
