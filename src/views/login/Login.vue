@@ -29,7 +29,11 @@
           {{ error }}
         </div>
         <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
+        <button
+          id="btnLogin"
+          class="btn btn-lg btn-primary btn-block"
+          type="submit"
+        >
           Sign in
         </button>
       </form>
@@ -87,5 +91,10 @@ export default defineComponent({
   padding-top: 30px;
   vertical-align: middle;
   max-width: 500px;
+}
+
+#btnLogin {
+  background: rgb(217, 171, 110);
+  border-color: rgb(217, 171, 110);
 }
 </style>
