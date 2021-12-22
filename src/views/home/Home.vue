@@ -21,7 +21,8 @@
             height="20"
             style="margin-right: 1%"
           />
-          <strong>{{ item.name }}</strong> {{ item.balance }}€
+          <strong>{{ item.name }}</strong>
+          {{ item.balance }}€
         </button>
       </ul>
     </div>
@@ -41,7 +42,6 @@ export default {
   methods: {
     getProducts() {
       this.$store.dispatch("products").then((data) => {
-        console.log(data);
         this.source = data;
       });
     },

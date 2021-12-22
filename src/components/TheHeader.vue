@@ -1,40 +1,21 @@
 <template>
   <nav class="navbar navbar-light" style="back">
     <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'home' }"
-        >Banco Caminos</router-link
-      >
+      <router-link class="navbar-brand" :to="{ name: 'home' }">Banco Caminos</router-link>
       <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
         <li class="navbar-brand nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'home' }"
-            >Home</router-link
-          >
+          <router-link class="nav-link" active-class="active" exact :to="{ name: 'home' }">Home</router-link>
         </li>
         <li class="navbar-brand nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'login' }"
-          >
+          <router-link class="nav-link" active-class="active" exact :to="{ name: 'login' }">
             <i class="ion-compose"></i>Sign in
           </router-link>
         </li>
       </ul>
       <ul v-else class="nav navbar-nav pull-xs-right">
         <li class="navbar-brand nav-item nav-link" v-if="currentUser">
-          Hola de nuevo, {{ currentUser.toUpperCase() }} |
-          <b-button
-            id="btnLogout"
-            variant="link"
-            v-if="currentUser"
-            v-on:click="logout"
-            >Logout</b-button
-          >
+          Hola de nuevo, {{ currentUser }} |
+          <a v-if="currentUser" v-on:click="logout">Logout</a>
         </li>
       </ul>
     </div>

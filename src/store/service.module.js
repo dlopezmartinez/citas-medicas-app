@@ -12,9 +12,6 @@ const actions = {
     genericRequest(store, { url, method, payload }) {
         return new Promise((resolve, reject) => {
             const REST_API_URL = 'http://localhost:3000/api'
-            console.log(url);
-            console.log(method);
-            console.log(payload);
             const config = {
                 url : REST_API_URL + url,
                 method,

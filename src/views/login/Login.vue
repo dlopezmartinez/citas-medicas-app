@@ -25,17 +25,9 @@
           v-model="datos.clave"
         />
         <br />
-        <div class="alert alert-danger" role="alert" v-if="error">
-          {{ error }}
-        </div>
+        <div class="alert alert-danger" role="alert" v-if="error">{{ error }}</div>
         <br />
-        <button
-          id="btnLogin"
-          class="btn btn-lg btn-primary btn-block"
-          type="submit"
-        >
-          Sign in
-        </button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
     </div>
   </div>
