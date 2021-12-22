@@ -3,7 +3,7 @@ var cors = require('cors');
 
 const app = express();
 
-app.use(express.json())    // <==== parse request body as JSON
+app.use(express.json())
 
 
 const allowedOrigins = ['http://localhost:8080'];
@@ -22,7 +22,8 @@ app.use(cors({
 app.post('/api/login', function (req, res) {
     if(req.body.username == "carla"){
         res.statusCode = 200;
-        res.json({ username: 'carla', token: 'testtoken'});
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.send(JSON.stringify({ username: 'carla', token: 'testtoken'}));
     }
     else {
         res.statusCode = 400;
@@ -32,8 +33,8 @@ app.post('/api/login', function (req, res) {
 
 
 app.get('/api/product', function (req, res) {
-    res.json([{ id: '1', name: 'cuenta', saldo: 12.45}, { id: '2', name: 'tarjeta', saldo: 50.45}]);
-    res.send();
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.send(JSON.stringify([{ id: '1', name: 'cuenta', saldo: 12.45}, { id: '2', name: 'tarjeta', saldo: 50.45}]));
     
 });
 
