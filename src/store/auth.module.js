@@ -1,4 +1,4 @@
-const authURL = "/authenticate"
+const authURL = "/login"
 
 
 const state = {
@@ -29,7 +29,7 @@ const actions = {
             {
                 url: authURL,
                 method: "POST",
-                body: credentials
+                payload: credentials
             }
         )
         .then((response) => {

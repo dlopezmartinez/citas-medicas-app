@@ -1,4 +1,4 @@
-const productsURL = "/products"
+const productsURL = "/product"
 
 
 

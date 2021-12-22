@@ -30,7 +30,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 //setup interceptors
-setupInterceptors();
+//setupInterceptors();
 
 const app = createApp(App)
 app.use(router);
