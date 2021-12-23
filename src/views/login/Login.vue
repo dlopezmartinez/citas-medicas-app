@@ -25,9 +25,17 @@
           v-model="datos.clave"
         />
         <br />
-        <div class="alert alert-danger" role="alert" v-if="error">{{ error }}</div>
+        <div class="alert alert-danger" role="alert" v-if="error">
+          {{ error }}
+        </div>
         <br />
-        <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button
+          id="btnLogin"
+          class="btn btn-lg btn-primary btn-block"
+          type="submit"
+        >
+          Sign in
+        </button>
       </form>
     </div>
   </div>
@@ -54,10 +62,8 @@ export default defineComponent({
           username: this.datos.usuario,
           password: this.datos.clave,
         })
-        .then((response) => {
+        .then(() => {
           console.log("Login correcto");
-          console.log("Username : " + response.username);
-          console.log("Token : " + response.token);
           this.error = null;
           this.$router.push("/");
         })
