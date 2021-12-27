@@ -30,7 +30,7 @@ const actions = {
                 commit("setProducts",response);
                 resolve(response)
             }).catch((err) => {
-                reject(err);
+                reject(err.message);
             }) 
         })
     }

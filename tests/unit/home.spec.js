@@ -5,7 +5,7 @@ describe("Home.vue", () => {
     it("has data", () => {
         expect(typeof HomeVue.data).toBe("function");
     });
-    it("mock dispatch products", async() => {
+    it("mock dispatch products", async () => {
         const $store = {
             dispatch: jest.fn((payload) => {
                 return Promise.resolve({
@@ -22,6 +22,7 @@ describe("Home.vue", () => {
                 },
             },
         });
+
         expect($store.dispatch).toHaveBeenCalledWith("products");
     });
 });

@@ -25,7 +25,7 @@
           v-model="datos.clave"
         />
         <br />
-        <div class="alert alert-danger" role="alert" v-if="error">
+        <div id="errMsg" class="alert alert-danger" role="alert"  v-if="error">
           {{ error }}
         </div>
         <br />
@@ -67,8 +67,8 @@ export default defineComponent({
           this.error = null;
           this.$router.push("/");
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          console.log("Login incorrecto");
           this.error = "Crecendiales incorrectas";
         });
     },
